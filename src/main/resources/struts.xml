@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+    <!--让struts2始终先考虑spring的自动装箱-->
+    <constant name="struts.objectFactory.spring.autoWire.alwaysRespect" value="true" />
+
+    <!-- 配置常量 -->
+    <!-- struts2的国际化大致上分为页面的国际化,Action的国际化以及xml的国际化 -->
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    <!-- 是否使用struts的开发模式。开发模式会有更多的调试信息。默认值为false(生产环境下使用),开发阶段最好打开 -->
+    <constant name="struts.devMode" value="false" />
+    <!-- 指定被struts2处理的请求后缀类型。多个用逗号隔开  -->
+    <constant name="struts.action.extension" value="do"/>
+    <!-- 当struts.xml改动后，是否重新加载。默认值为false(生产环境下使用),开发阶段最好打开 -->
+    <constant name="struts.configuration.xml.reload" value="false" />
+    <!-- 设置上传文件时不要Tomcat的临时路径,使用设置的值-->
+    <constant name="struts.multipart.saveDir" value="/home/filetemp/" />
+    <!-- 设置上传文件大小      最大10M -->
+    <constant name="struts.multipart.maxSize" value="10485760" />
+
+
+    <package name="default" extends="struts-default">
+        <!-- 定义全局Result -->
+        <global-results>
+            <!-- 跳转404页面-->
+            <result name="error" type="redirectAction">
+                <param name="namespace">/</param>
+                <param name="actionName">error</param>
+            </result>
+        </global-results>
+    </package>
+</struts>

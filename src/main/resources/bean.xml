@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    	 http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+     	 http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd
+         http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop.xsd
+         http://www.springframework.org/schema/tx
+     	 http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:component-scan base-package="xyz.lihang.housenet"></context:component-scan>
+    <aop:aspectj-autoproxy proxy-target-class="true"/><!-- 开启aop支持 -->
+    <context:property-placeholder location="classpath:db.properties" />
+    <!-- 1. 连接池实例 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="jdbcUrl" value="${jdbcUrl}"></property>
+        <property name="driverClass" value="${driverClass}"></property>
+        <property name="user" value="${user}"></property>
+        <property name="password" value="${password}"></property>
+        <property name="initialPoolSize" value="${initialPoolSize}"></property>
+        <property name="maxPoolSize" value="${maxPoolSize}"></property>
+    </bean>
+
+    <!-- 2. Spring管理SessionFactory 【全部配置都写到spring中】 -->
+    <!-- # 注入DataSource、 注入常用配置属性、映射配置属性 -->
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="packagesToScan">
+            <list>
+                <value>xyz.lihang.housenet.entity</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+        <props>
+            <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+            <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+            <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+        </props>
+    </property>
+    </bean>
+
+    <!-- 3. 事务相关配置 -->
+    <!-- 3.1 事务管理器类 -->
+    <bean id="txManager"
+          class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <!-- 3.2 事务增强(如何管理事务) -->
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true" />
+            <tx:method name="find*" read-only="true" />
+            <tx:method name="*" read-only="false" />
+        </tx:attributes>
+    </tx:advice>
+    <!-- 3.3 Aop配置 = 切入点表达式(拦截目标对象，生成代理) + 事务增强应用 -->
+    <aop:config>
+        <aop:pointcut expression="bean(*Service)"
+                      id="currency_AOP" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="currency_AOP" />
+    </aop:config>
+</beans>
