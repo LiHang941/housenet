@@ -81,17 +81,6 @@ public class ManagerAction extends BaseAction {
     }
 
 
-    @Action(value="mainUI",results={
-            @Result(name="success", location="/WEB-INF/jsp/house/main.jsp")
-    })
-    public String mainUI (){
-        return SUCCESS;
-    }
-
-
-
-
-
     @Action(value="managerUI",results={
             @Result(name="success", location="/WEB-INF/jsp/house/manager.jsp")
     })

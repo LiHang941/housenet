@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 未登陆用户跳转登陆页面
+ */
 public class LoginFilter implements Filter {
 
     @Override

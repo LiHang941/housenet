@@ -2,6 +2,7 @@ package xyz.lihang.housenet.utils;
 
 /**
  * Created by Administrator on 2017/7/3.
+ * 搜索
  */
 public final class Range  {
     //面积

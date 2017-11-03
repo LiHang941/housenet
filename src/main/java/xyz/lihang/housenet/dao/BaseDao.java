@@ -15,8 +15,11 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2017/11/1.
+ *
+ * dao操作基类
  */
 public abstract class BaseDao<T> extends HibernateDaoSupport {
+    //
     private String className;
     // 当前操作的实际的bean类型
     private Class<T> clazz;
@@ -32,31 +35,61 @@ public abstract class BaseDao<T> extends HibernateDaoSupport {
         className = clazz.getSimpleName();// 例如：Employee
     }
 
+    @Resource(name="sessionFactory")
+    public void setBaseDaoSessionFactory(SessionFactory  sessionFactory){
+        super.setSessionFactory(sessionFactory);
+    }
+
+
+    /**
+     * 保存
+     * @param t
+     */
     public void save(T t) {
         currentSession().save(t);
     }
 
+    /**
+     * 更新
+     * @param t
+     */
     public void update(T t) {
         currentSession().update(t);
     }
 
+    /**
+     * 删除
+     * @param t
+     */
     public void delete(T t) {
         currentSession().delete(t);
     }
 
-
+    /**
+     * 用于执行无返回值的操作
+     * delete update insert
+     * @param hql
+     */
     public void execute(String hql) {
         currentSession().createQuery(hql)
                 .executeUpdate();
     }
 
-    @SuppressWarnings("unchecked")
+    /**
+     * 获取所有
+     * @return List<T>
+     */
     public List<T> getAll() {
         return currentSession()
                 .createQuery("from " + className).list();
     }
 
-    @SuppressWarnings("unchecked")
+    /**
+     * 查询指定条件的hql
+     * @param hql
+     * @param parameter
+     * @return
+     */
     public List<T> findByCondition(String hql,Object ... parameter) {
         Query query = currentSession().createQuery(hql);
         for(int i=0 ;i<parameter.length;i++){
@@ -65,6 +98,11 @@ public abstract class BaseDao<T> extends HibernateDaoSupport {
         return query.list();
     }
 
+    /**
+     * 根据指定id查对象
+     * @param id
+     * @return
+     */
     public T findById(Serializable id) {
         return (T) currentSession().get(clazz, id);
     }
@@ -123,8 +161,5 @@ public abstract class BaseDao<T> extends HibernateDaoSupport {
         return generalQueryHelper;
     }
 
-    @Resource(name="sessionFactory")
-    public void setBaseDaoSessionFactory(SessionFactory  sessionFactory){
-        super.setSessionFactory(sessionFactory);
-    }
+
 }

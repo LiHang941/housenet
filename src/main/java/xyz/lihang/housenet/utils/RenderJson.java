@@ -4,9 +4,8 @@ import java.util.List;
 
 
 /**
- * 业务操作返回Json
+ * Json约定
  * @author LiHang
- *
  */
 public class RenderJson {
 	private String status ;

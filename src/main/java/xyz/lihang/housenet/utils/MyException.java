@@ -2,6 +2,7 @@ package xyz.lihang.housenet.utils;
 
 /**
  * Created by Administrator on 2017/11/2.
+ * 自定义RuntimeException
  */
 public  class MyException extends RuntimeException {
     private String errorMsg;

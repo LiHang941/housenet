@@ -3,7 +3,6 @@ package xyz.lihang.housenet.action;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 import xyz.lihang.housenet.utils.Page;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,7 +13,9 @@ import java.util.logging.Logger;
  * 封装部分方法
  */
 public abstract class BaseAction extends ActionSupport {
-
+    /**
+     * 日志
+     */
     protected final Logger logger = Logger.getLogger(this.getClass().getName());
     /**
      * 当前页码
@@ -24,7 +25,6 @@ public abstract class BaseAction extends ActionSupport {
      * 搜索
      */
     protected String keywords;
-
     /**
      * 获取session
      * @return HttpSession
@@ -32,7 +32,6 @@ public abstract class BaseAction extends ActionSupport {
     public HttpSession getSession (){
         return ServletActionContext.getRequest().getSession();
     }
-
     /**
      * 获取request
      * @return HttpServletRequest
@@ -40,7 +39,6 @@ public abstract class BaseAction extends ActionSupport {
     public HttpServletRequest getRequest (){
         return ServletActionContext.getRequest();
     }
-
     /**
      * HttpServletResponse
      * @return

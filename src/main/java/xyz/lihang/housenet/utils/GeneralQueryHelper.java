@@ -5,6 +5,20 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2017/7/2.
+ * Hql查询帮助类
+ *
+ //===================用例=============================
+ //设置from xxx
+ GeneralQueryHelper<HouseEntity> generalQueryHelper = new GeneralQueryHelper<HouseEntity>(HouseEntity.class, "houseEntity");
+ //设置分页
+ generalQueryHelper.setPageProperty(page.getP(),Constant.MANAGER_LIST_LENGTH);
+ //添加一个查询限定条件
+ generalQueryHelper.addAndCondition("houseEntity.title like ?","%" + keywords + "%");
+ //添加orderBy 语句
+ generalQueryHelper.addOrderByProperty("houseEntity.pubdate ",GeneralQueryHelper.ORDER_BY_DESC);
+ //查询
+ GeneralQueryHelper<HouseEntity> queryHelper = houseService.getByQueryHelper(generalQueryHelper);
+ *
  */
 public class GeneralQueryHelper<T> {
     //查询返回的分页
@@ -123,7 +137,6 @@ public class GeneralQueryHelper<T> {
         return "SELECT COUNT(*) " + fromClause + whereClause;
     }
 
-    //查询hql语句中?对应的查询条件值集合
     /**
      * 获取 查询hql语句中?对应的查询条件值集合
      * @return

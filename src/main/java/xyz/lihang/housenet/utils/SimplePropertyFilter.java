@@ -5,6 +5,9 @@ import org.hibernate.collection.spi.PersistentCollection;
 import org.hibernate.proxy.HibernateProxy;
 import org.hibernate.proxy.LazyInitializer;
 
+/**
+ * 解决fastJson转换json时访问hibernate代理出现session不存在的问题
+ */
 public class SimplePropertyFilter implements PropertyFilter {
 
     private static class instance {

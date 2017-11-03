@@ -22,13 +22,6 @@ public class HouseService extends AbsBaseService<HouseEntity> implements IHouseS
         this.houseDao = houseDao;
         setBaseDao(houseDao);
     }
-//    @Resource
-//    private UsersDao usersDao;
-//    @Resource
-//    private TypeDao typeDao;
-//    @Resource
-//    private StreetDao streetDao;
-
 
     @Override
     public void save(HouseEntity houseEntity) {
