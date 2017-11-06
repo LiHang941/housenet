@@ -1,4 +1,4 @@
-﻿body { font:12px/22px Verdana, Geneva, sans-serif; background:#fff; color:#333; }
+﻿body {  background:#fff; color:#333;font-family: Arial,'微软雅黑', sans-serif; font-size:12px;  }
 body,p,ul,ol,li,dl,dt,dd,input,h1,h2,h3,h4,form { padding:0; margin:0; }
 img { border:0; }
 table { border-collapse:collapse; }

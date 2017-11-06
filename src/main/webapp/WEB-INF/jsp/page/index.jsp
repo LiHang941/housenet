@@ -18,7 +18,7 @@
     <script src="${basePath}ref/bootstrap/js/bootstrap.min.js"></script>
     <title>租房网</title>
 </head>
-<body style="">
+<body style="font-family: Arial,'微软雅黑', sans-serif; font-size:12px;">
 <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -33,6 +33,9 @@
             </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="${basePath}admin/managerUI.do">登陆</a></li>
+            </ul>
             <form class="navbar-form navbar-right" action="${basePath}index.do" method="post" name="actionForm">
                 <input type="hidden" name="page.p" value="" id="pageIndex"/>
                 <div class="form-group">

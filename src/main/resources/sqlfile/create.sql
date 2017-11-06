@@ -66,8 +66,13 @@ INSERT INTO type (money, name) VALUES (3000,'二室一厅');
 INSERT INTO type (money, name) VALUES (4000,'二室二厅');
 
 
---区街
+--区
 INSERT  INTO  district (name) VALUES ('台江区');
+INSERT  INTO  district (name) VALUES ('岳池县');
+INSERT  INTO  district (name) VALUES ('广安区');
+INSERT  INTO  district (name) VALUES ('前锋区');
+
+--街
 INSERT INTO street (name, district_id) VALUES ('瀛洲街道',1);
 INSERT INTO street (name, district_id) VALUES ('后洲街道',1);
 INSERT INTO street (name, district_id) VALUES ('义洲街道',1);
@@ -77,7 +82,7 @@ INSERT INTO street (name, district_id) VALUES ('苍霞街道',1);
 INSERT INTO street (name, district_id) VALUES ('茶亭街道',1);
 INSERT INTO street (name, district_id) VALUES ('宁化街道',1);
 INSERT INTO street (name, district_id) VALUES ('鳌峰街道',1);
-INSERT  INTO  district (name) VALUES ('岳池县');
+
 INSERT INTO street (name, district_id) VALUES ('九龙镇',2);
 INSERT INTO street (name, district_id) VALUES ('花园镇',2);
 INSERT INTO street (name, district_id) VALUES ('坪滩镇',2);
@@ -121,7 +126,7 @@ INSERT INTO street (name, district_id) VALUES ('花板乡',2);
 INSERT INTO street (name, district_id) VALUES ('大佛乡',2);
 INSERT INTO street (name, district_id) VALUES ('齐福乡',2);
 INSERT INTO street (name, district_id) VALUES ('伏龙乡',2);
-INSERT  INTO  district (name) VALUES ('广安区');
+
 INSERT INTO street (name, district_id) VALUES ('浓洄街道',3);
 INSERT INTO street (name, district_id) VALUES ('北辰街道',3);
 INSERT INTO street (name, district_id) VALUES ('广福街道',3);
@@ -158,7 +163,7 @@ INSERT INTO street (name, district_id) VALUES ('消河乡',3);
 INSERT INTO street (name, district_id) VALUES ('东岳乡',3);
 INSERT INTO street (name, district_id) VALUES ('苏溪乡',3);
 INSERT INTO street (name, district_id) VALUES ('白马乡',3);
-INSERT  INTO  district (name) VALUES ('前锋区');
+
 INSERT INTO street (name, district_id) VALUES ('奎阁街道',4);
 INSERT INTO street (name, district_id) VALUES ('大佛寺街道',4);
 INSERT INTO street (name, district_id) VALUES ('龙塘街道',4);
@@ -173,3 +178,21 @@ INSERT INTO street (name, district_id) VALUES ('虎城镇',4);
 INSERT INTO street (name, district_id) VALUES ('小井乡',4);
 INSERT INTO street (name, district_id) VALUES ('光辉乡',4);
 INSERT INTO street (name, district_id) VALUES ('新桥乡',4);
+
+--住房信息
+INSERT INTO housenet.dbo.house (user_id, type_id, title, description, price, pubdate, floorage, contact, street_id) VALUES (1, 1, '住房出租', '便宜卖', 1000000, '2017-08-06', 100, '1231312312', 1);
+INSERT INTO housenet.dbo.house (user_id, type_id, title, description, price, pubdate, floorage, contact, street_id) VALUES (1, 1, '住房出租', '便宜卖', 1000000, '2017-08-06', 100, '1231312312', 1);
+INSERT INTO housenet.dbo.house (user_id, type_id, title, description, price, pubdate, floorage, contact, street_id) VALUES (1, 1, '住房出租', '便宜卖', 1000000, '2017-08-06', 100, '1231312312', 1);
+INSERT INTO housenet.dbo.house (user_id, type_id, title, description, price, pubdate, floorage, contact, street_id) VALUES (1, 1, '住房出租', '便宜卖', 1000000, '2017-08-06', 100, '1231312312', 1);
+INSERT INTO housenet.dbo.house (user_id, type_id, title, description, price, pubdate, floorage, contact, street_id) VALUES (1, 1, '住房出租', '便宜卖', 1000000, '2017-08-06', 100, '1231312312', 1);
+INSERT INTO housenet.dbo.house (user_id, type_id, title, description, price, pubdate, floorage, contact, street_id) VALUES (1, 1, '住房出租', '便宜卖', 1000000, '2017-08-06', 100, '1231312312', 1);
+INSERT INTO housenet.dbo.house (user_id, type_id, title, description, price, pubdate, floorage, contact, street_id) VALUES (1, 1, '住房出租', '便宜卖', 1000000, '2017-08-06', 100, '1231312312', 1);
+INSERT INTO housenet.dbo.house (user_id, type_id, title, description, price, pubdate, floorage, contact, street_id) VALUES (1, 1, '住房出租', '便宜卖', 1000000, '2017-08-06', 100, '1231312312', 1);
+INSERT INTO housenet.dbo.house (user_id, type_id, title, description, price, pubdate, floorage, contact, street_id) VALUES (1, 1, '住房出租', '便宜卖', 1000000, '2017-08-06', 100, '1231312312', 1);
+INSERT INTO housenet.dbo.house (user_id, type_id, title, description, price, pubdate, floorage, contact, street_id) VALUES (1, 1, '住房出租', '便宜卖', 1000000, '2017-08-06', 100, '1231312312', 1);
+INSERT INTO housenet.dbo.house (user_id, type_id, title, description, price, pubdate, floorage, contact, street_id) VALUES (1, 1, '住房出租', '便宜卖', 1000000, '2017-08-06', 100, '1231312312', 1);
+INSERT INTO housenet.dbo.house (user_id, type_id, title, description, price, pubdate, floorage, contact, street_id) VALUES (1, 1, '住房出租', '便宜卖', 1000000, '2017-08-06', 100, '1231312312', 1);
+INSERT INTO housenet.dbo.house (user_id, type_id, title, description, price, pubdate, floorage, contact, street_id) VALUES (1, 1, '住房出租', '便宜卖', 1000000, '2017-08-06', 100, '1231312312', 1);
+INSERT INTO housenet.dbo.house (user_id, type_id, title, description, price, pubdate, floorage, contact, street_id) VALUES (1, 1, '住房出租', '便宜卖', 1000000, '2017-08-06', 100, '1231312312', 1);
+INSERT INTO housenet.dbo.house (user_id, type_id, title, description, price, pubdate, floorage, contact, street_id) VALUES (1, 1, '住房出租', '便宜卖', 1000000, '2017-08-06', 100, '1231312312', 1);
+INSERT INTO housenet.dbo.house (user_id, type_id, title, description, price, pubdate, floorage, contact, street_id) VALUES (1, 1, '住房出租', '便宜卖', 1000000, '2017-08-06', 100, '1231312312', 1);

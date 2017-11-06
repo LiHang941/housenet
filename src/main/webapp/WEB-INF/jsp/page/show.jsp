@@ -10,7 +10,7 @@
     <script src="${basePath}scripts/jquery-2.1.3.min.js"></script>
     <title>查看租房信息</title>
 </head>
-<body>
+<body style="font-family: Arial,'微软雅黑', sans-serif; font-size:12px;">
     <div class="container">
         <div class="page-header">
             <a type="button"  class="btn btn-warning" href="javascript:window.history.back();">

@@ -28,6 +28,8 @@ public class LoginFilter implements Filter {
             String basePath = servletRequest.getScheme()+"://"+servletRequest.getServerName()+":"+servletRequest.getServerPort()+path+"/";
             String url = basePath + "loginUI.do";
             httpservletResponse.sendRedirect(url);
+        }else{
+            filterChain.doFilter(servletRequest,servletResponse);
         }
     }
 
